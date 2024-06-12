@@ -144,18 +144,17 @@ async def scrape_business(search_term, total):
                     '//a[contains(@href, "https://www.google.com/maps/place")]'
                 ).count()
                 if current_count >= total:
-                    # Await the locator and get all elements first
+
                     all_listings = await page.locator(
                         '//a[contains(@href, "https://www.google.com/maps/place")]'
                     ).all()
 
-                    # Slice the desired number of listings
                     listings = all_listings[:total]
 
                     break
 
                 elif current_count == previously_counted:
-                    # Similarly, await the locator to get all elements
+
                     listings = await page.locator(
                         '//a[contains(@href, "https://www.google.com/maps/place")]'
                     ).all()
@@ -170,8 +169,7 @@ async def scrape_business(search_term, total):
             for listing in listings:
                 try:
                     await listing.click()
-                    await page.wait_for_timeout(
-                        3000)  # Adjust this timeout as needed
+                    await page.wait_for_timeout(3000)
 
                     name_css_selector = 'h1.DUwDvf.lfPIob'
                     address_xpath = '//button[@data-item-id="address"]//div[contains(@class, "fontBodyMedium")]'
@@ -262,7 +260,6 @@ async def main():
     st.text("By Shakib Absar")
     st.markdown("---")
 
-    # Add small text
     st.markdown(
         """
     <p style="font-size: 13px;color: aqua;">Enter search term  ( e.g. Coffee Shops in New York, United States  /  Restaurants in Sylhet, Bangladesh  ) for more accurate results</p>
@@ -304,10 +301,8 @@ async def main():
 
                     st.success("Fetched completed!")
 
-                    # Create a container to center-align the download button
                     download_container = st.container()
 
-                    # Place the download button inside the container
                     with download_container:
                         st.markdown(
                             ""
@@ -318,8 +313,6 @@ async def main():
                                            file_name=f"{excel_filename}.xlsx",
                                            mime="application/octet-stream")
 
-
-# Optional: Display a message if excel_file_path is None
                 else:
                     st.warning(
                         "No file to download. Please make sure to run the scraper first."
@@ -330,6 +323,7 @@ async def main():
                 st.markdown("---")
                 st.text(f"Elapsed Time: {elapsed_time:.2f} seconds")
                 st.markdown("---")
+
 
 if __name__ == "__main__":
     asyncio.run(main())
