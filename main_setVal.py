@@ -22,20 +22,20 @@ class Business:
     address: str = None
     website: str = None
     phone_number: str = None
-    reviews_count: int = None
+    # reviews_count: int = None
     reviews_average: float = None
 
     def __eq__(self, other):
         if not isinstance(other, Business):
             return NotImplemented
         return (self.name, self.address, self.website, self.phone_number,
-                self.reviews_count, self.reviews_average) == \
+                self.reviews_average) == \
                (other.name, other.address, other.website, other.phone_number,
-                other.reviews_count, other.reviews_average)
+                 other.reviews_average)
 
     def __hash__(self):
         return hash((self.name, self.address, self.website, self.phone_number,
-                     self.reviews_count, self.reviews_average))
+                     self.reviews_average))
 
 
 @dataclass
@@ -140,7 +140,7 @@ async def scrape_business(search_term, total):
                     address_xpath = '//button[@data-item-id="address"]//div[contains(@class, "fontBodyMedium")]'
                     website_xpath = '//a[@data-item-id="authority"]//div[contains(@class, "fontBodyMedium")]'
                     phone_number_xpath = '//button[contains(@data-item-id, "phone")]//div[contains(@class, "fontBodyMedium")]'
-                    review_count_xpath = '//button[@jsaction="pane.reviewChart.moreReviews"]//span'
+                    # review_count_xpath = '//button[@jsaction="pane.reviewChart.moreReviews"]//span'
                     reviews_average_xpath = '//div[@jsaction="pane.reviewChart.moreReviews"]//div[@role="img"]'
 
                     business = Business()
@@ -184,14 +184,14 @@ async def scrape_business(search_term, total):
                     else:
                         business.phone_number = ""
 
-                    if await page.locator(review_count_xpath).count() > 0:
-                        review_count_text = await page.locator(
-                            review_count_xpath).inner_text()
-                        business.reviews_count = int(
-                            review_count_text.split()[0].replace(',',
-                                                                 '').strip())
-                    else:
-                        business.reviews_count = None
+                    # if await page.locator(review_count_xpath).count() > 0:
+                    #     review_count_text = await page.locator(
+                    #         review_count_xpath).inner_text()
+                    #     business.reviews_count = int(
+                    #         review_count_text.split()[0].replace(',',
+                    #                                              '').strip())
+                    # else:
+                    #     business.reviews_count = None
 
                     if await page.locator(reviews_average_xpath).count() > 0:
                         reviews_average_text = await page.locator(
@@ -225,11 +225,21 @@ async def main():
     st.text("By Shakib Absar")
     st.markdown("---")
 
-    search_term = st.text_input("Enter search term")
+    # Add small text
+    st.markdown(
+        """
+    <p style="font-size: 13px;color: aqua;">Enter search term  ( e.g. Coffee Shops in New York, United States  /  Restaurants in Sylhet, Bangladesh  ) for more accurate results</p>
+    """,
+        unsafe_allow_html=True,
+    )
+    search_term = st.text_input(
+        "Enter search term",
+        placeholder="e.g. Barber Shops in London United Kingdom")
+
     total_results = st.number_input("Enter number of results",
                                     min_value=1,
                                     max_value=1000,
-                                    value=300)
+                                    value=30)
 
     if st.button("Get Data"):
         if not search_term:
