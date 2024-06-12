@@ -7,8 +7,24 @@ import logging
 from dataclasses import dataclass, asdict, field
 import datetime
 import time
+import os
+import asyncio
+from playwright.async_api import async_playwright
+import streamlit as st
+import pandas as pd
+import time
+import datetime
+import logging
+from dataclasses import dataclass, asdict, field
 
 asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
+
+
+# Ensuring Playwright browsers are installed
+async def install_playwright_browsers():
+    from playwright.__main__ import main as playwright_main
+    await asyncio.create_task(playwright_main(['install']))
+
 
 # Set up logging
 logging.basicConfig(level=logging.INFO,

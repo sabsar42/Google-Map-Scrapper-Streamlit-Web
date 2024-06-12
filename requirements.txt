@@ -1,0 +1,5 @@
+streamlit
+playwright
+pandas
+asyncio
+openpyxl
