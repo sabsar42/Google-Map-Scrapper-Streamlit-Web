@@ -35,7 +35,7 @@ async def install_playwright_browsers():
     await asyncio.create_task(playwright_main(['install']))
 
 
-asyncio.run(install_playwright_browsers())
+# asyncio.run(install_playwright_browsers())
 
 
 # Ensuring Playwright browsers are installed
