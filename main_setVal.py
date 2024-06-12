@@ -28,6 +28,9 @@ os.system(
 # Install Playwright
 os.system('pip install playwright')
 
+# Install Playwright browsers
+os.system('playwright install')
+
 
 # Ensure Playwright browsers are installed
 async def install_playwright_browsers():
