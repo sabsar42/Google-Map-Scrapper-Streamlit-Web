@@ -3,4 +3,3 @@ playwright
 pandas
 asyncio
 openpyxl
-playwright.async_api
