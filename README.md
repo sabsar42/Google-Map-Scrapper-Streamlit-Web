@@ -1,8 +1,10 @@
 # Google Maps Business Scraper Streamlit Web App
+# live : https://gmap-scraper-web-app-shakib-absar.streamlit.app/
 
 ## Overview
 
-Google Maps Business Scraper is a Streamlit application designed to scrape business details from Google Maps based on a search term. It extracts business names, addresses, websites, phone numbers, review counts, and average reviews. The scraped data is then saved in an Excel file for easy access and download.
+Google Maps Business Scraper is a Streamlit application designed to scrape business details from Google Maps based on a search term. It extracts `business names`, `addresses`, `websites`, `phone numbers`, and `average reviews`. <br>
+The scraped data is then saved in an Excel file for easy access and download.
 
 ## Features
 
@@ -66,10 +68,10 @@ Google Maps Business Scraper is a Streamlit application designed to scrape busin
 
 ## Example
 
-1. **Enter Search Term**: "Coffee Shops in New York"
+1. **Enter Search Term**: "Coffee Shops in New York, United States"
 2. **Specify Number of Results**: 100
 3. **Click Scrape**: The app scrapes data and displays progress.
-4. **Download Excel File**: Click the download button to get the results.
+4. **Download Excel File**: Click the download button to get the results in .XLSX format ( Excel File ).
 
 ## Contributions
 
