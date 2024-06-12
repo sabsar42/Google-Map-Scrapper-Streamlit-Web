@@ -19,6 +19,23 @@ from dataclasses import dataclass, asdict, field
 
 asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
 
+# Ensure necessary system packages are installed
+os.system(
+    'apt-get update && apt-get install -y libnss3 libatk1.0-0 libatk-bridge2.0-0 libx11-xcb1 libxcomposite1 libxcursor1 libxdamage1 libxfixes3 libxi6 libxrandr2 libgbm1 libasound2 libpangocairo-1.0-0 libpango-1.0-0 libgdk-pixbuf2.0-0 libgtk-3-0 libdrm2'
+)
+
+# Install Playwright
+os.system('pip install playwright')
+
+
+# Ensure Playwright browsers are installed
+async def install_playwright_browsers():
+    from playwright.__main__ import main as playwright_main
+    await asyncio.create_task(playwright_main(['install']))
+
+
+asyncio.run(install_playwright_browsers())
+
 
 # Ensuring Playwright browsers are installed
 async def install_playwright_browsers():
