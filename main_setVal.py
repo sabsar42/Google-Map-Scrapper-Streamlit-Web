@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import asyncio
+import playwright.async_api
 from playwright.async_api import async_playwright
 import os
 import logging
