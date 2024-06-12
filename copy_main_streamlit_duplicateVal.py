@@ -6,6 +6,7 @@ import os
 import logging
 from dataclasses import dataclass, asdict, field
 import datetime
+import pytz
 
 asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
 
@@ -218,9 +219,10 @@ async def main():
             with st.spinner("Scraping data..."):
                 business_list = await scrape_business(search_term,
                                                       total_results)
+                bangladesh_timezone = pytz.timezone('Asia/Dhaka')
 
-                current_datetime = datetime.datetime.now().strftime(
-                    "%Y%m%d_%H%M%S")
+                current_datetime = datetime.datetime.now(
+                    bangladesh_timezone).strftime("%Y%m%d_%H%M%S")
                 search_for_filename = search_term.replace(' ', '_')
 
                 excel_filename = f"{current_datetime}_rows_{search_for_filename}"
