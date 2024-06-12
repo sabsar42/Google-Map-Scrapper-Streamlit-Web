@@ -18,7 +18,7 @@ import datetime
 import logging
 from dataclasses import dataclass, asdict, field
 
-asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
+# asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
 
 # Ensure necessary system packages are installed
 os.system(
