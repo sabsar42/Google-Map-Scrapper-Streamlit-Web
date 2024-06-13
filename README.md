@@ -57,7 +57,7 @@ The scraped data is then saved in an Excel file for easy access and download.
     - Specify the number of results to scrape.
 
 4. **Scrape and Download Data**
-    - Click on the **Scrape** button to start scraping.
+    - Click on the **Get Data** button to start scraping.
     - After completion, download the Excel file containing the scraped data.
 
 ## Code Structure
