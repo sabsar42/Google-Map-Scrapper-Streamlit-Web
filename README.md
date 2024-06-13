@@ -62,9 +62,7 @@ The scraped data is then saved in an Excel file for easy access and download.
 
 ## Code Structure
 
-- **main.py**: Contains the main Streamlit application code.
-- **scraper.py**: Handles the scraping logic using Playwright.
-- **models.py**: Defines data models using Python's `dataclass`.
+- **`main_setVal.py`**: Contains the main Streamlit application code along with the Scraper logic.
 
 ## Example
 
