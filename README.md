@@ -8,7 +8,7 @@ The scraped data is then saved in an Excel file for easy access and download.
 
 ## Features
 
-- **User Input**: Enter a search term and specify the number of results to scrape.
+- **User Input**: Enter a search term and specify the number of results to scrape.  
 - **Progress Indicator**: A progress bar and elapsed time indicator to show the scraping process.
 - **Data Export**: Export the scraped data to an Excel file and download it directly from the app.
 - **Styled Interface**: Custom background color and personalized branding.
