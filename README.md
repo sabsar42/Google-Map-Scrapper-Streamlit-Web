@@ -65,7 +65,7 @@ The scraped data is then saved in an Excel file for easy access and download.
 - **`main_setVal.py`**: Contains the main Streamlit application code along with the Scraper logic.
 
 ## Example
-
+    
 1. **Enter Search Term**: "Coffee Shops in New York, United States"
 2. **Specify Number of Results**: 100
 3. **Click `Get Data`**: The app scrapes data and displays progress.
